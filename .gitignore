@@ -1,5 +1,6 @@
 node_modules/
 dist/
+.gh-pages-build/
 .DS_Store
 *.local
 npm-debug.log*
