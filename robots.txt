@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gensky.github.io/work-money-suite/sitemap.xml
