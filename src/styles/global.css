@@ -1280,8 +1280,36 @@ svg.is-filled {
 }
 
 @media (max-width: 520px) {
+  .navbar {
+    min-height: 64px;
+    padding: 0.55rem 0.75rem;
+  }
+
+  .brand {
+    gap: 0.55rem;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brand strong {
+    font-size: 0.95rem;
+    line-height: 1.1;
+  }
+
+  .navbar-actions {
+    gap: 0.45rem;
+  }
+
+  .icon-button {
+    width: 38px;
+    height: 38px;
+  }
+
   .main-content {
-    padding: 0.75rem;
+    padding: 0.65rem;
   }
 
   .brand small {
@@ -1289,18 +1317,64 @@ svg.is-filled {
   }
 
   .page-intro {
-    padding: 1rem 0.75rem;
+    margin: 0.4rem -0.65rem 0.75rem;
+    padding: 0.7rem 0.65rem;
   }
 
   .page-intro h1 {
-    font-size: clamp(1.85rem, 11vw, 2.7rem);
+    margin: 0.1rem 0 0;
+    font-size: clamp(1.55rem, 8.5vw, 2.15rem);
+    line-height: 1.05;
+  }
+
+  .page-intro p:not(.eyebrow) {
+    display: none;
+  }
+
+  .page-intro .eyebrow {
+    margin: 0 0 0.15rem;
+    font-size: 0.78rem;
   }
 
   .calculator-form,
   .result-panel,
   .affiliate-block,
   .library-tools {
-    padding: 0.75rem;
+    padding: 0.7rem;
+  }
+
+  .calculator-workspace {
+    gap: 0.75rem;
+  }
+
+  .form-grid {
+    gap: 0.7rem;
+  }
+
+  .field {
+    gap: 0.25rem;
+  }
+
+  .field-label {
+    font-size: 0.86rem;
+  }
+
+  input,
+  select {
+    min-height: 40px;
+    padding: 0.5rem 0.65rem;
+  }
+
+  .primary-button,
+  .secondary-button,
+  .inline-link {
+    min-height: 40px;
+    padding: 0.55rem 0.75rem;
+  }
+
+  .button-row {
+    gap: 0.55rem;
+    margin-top: 0.75rem;
   }
 
   .button-row,
