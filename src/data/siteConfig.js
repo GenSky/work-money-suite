@@ -1,7 +1,7 @@
 export const SITE_CONFIG = {
   name: "Work & Money Suite",
   shortName: "Work Money",
-  siteUrl: "https://workmoneysuite.com",
+  siteUrl: import.meta.env.VITE_SITE_URL || "https://workmoneysuite.com",
   defaultDescription:
     "Modern calculators for workdays, take-home pay, benefits, debt payoff, and retirement planning.",
   defaultOgImage: "/og-default.svg",
