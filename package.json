@@ -8,6 +8,7 @@
     "seo": "node scripts/generate-seo.mjs",
     "prebuild": "npm run seo",
     "build": "vite build",
+    "pages:prepare": "node scripts/prepare-pages.mjs",
     "preview": "vite preview",
     "smoke": "node scripts/smoke.mjs",
     "stress": "node scripts/stress.mjs",
