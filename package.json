@@ -1,0 +1,24 @@
+{
+  "name": "work-money-suite",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "seo": "node scripts/generate-seo.mjs",
+    "prebuild": "npm run seo",
+    "build": "vite build",
+    "preview": "vite preview",
+    "smoke": "node scripts/smoke.mjs",
+    "stress": "node scripts/stress.mjs",
+    "test": "npm run smoke && npm run stress"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.0.0"
+  },
+  "devDependencies": {}
+}
