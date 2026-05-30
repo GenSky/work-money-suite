@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { calculators } from "../src/data/calculators.js";
 
-const siteUrl = (process.env.SITE_URL || "https://workmoneysuite.com").replace(/\/$/, "");
+const siteUrl = (process.env.SITE_URL || "https://gensky.github.io/work-money-suite").replace(/\/$/, "");
 const today = new Date().toISOString().slice(0, 10);
 
 const liveRoutes = calculators

@@ -176,6 +176,7 @@ button:disabled {
 .app-body {
   display: grid;
   grid-template-columns: 1fr;
+  min-width: 0;
 }
 
 .sidebar {
@@ -230,6 +231,7 @@ button:disabled {
   width: min(1180px, 100%);
   margin: 0 auto;
   padding: 1rem;
+  min-width: 0;
 }
 
 .hero-section,
@@ -238,6 +240,17 @@ button:disabled {
 .calculator-grid {
   display: grid;
   gap: 1rem;
+  min-width: 0;
+}
+
+.dashboard,
+.calculator-page,
+.section-block,
+.category-block,
+.calculator-form,
+.result-panel,
+.assumption-box {
+  min-width: 0;
 }
 
 .hero-section {
@@ -423,6 +436,7 @@ button:disabled {
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
+  min-width: 0;
 }
 
 .section-header h2,
@@ -525,6 +539,7 @@ button:disabled {
   border: 2px solid var(--border);
   background: var(--climate-blue);
   color: #0b0f0c;
+  min-width: 0;
 }
 
 .hero-section .eyebrow,
@@ -560,6 +575,7 @@ button:disabled {
 .field {
   display: grid;
   gap: 0.4rem;
+  min-width: 0;
 }
 
 .field-label {
@@ -641,7 +657,16 @@ select:focus {
 }
 
 .result-header {
+  flex-wrap: wrap;
   margin-bottom: 1rem;
+}
+
+.result-header > div {
+  min-width: 0;
+}
+
+.result-header h2 {
+  overflow-wrap: anywhere;
 }
 
 .result-list {
@@ -860,6 +885,7 @@ svg.is-filled {
   background: var(--surface);
   box-shadow: var(--shadow);
   max-width: 100%;
+  min-width: 0;
   overflow: hidden;
 }
 
@@ -868,6 +894,7 @@ svg.is-filled {
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
+  min-width: 0;
 }
 
 .affiliate-header h2 {
@@ -893,11 +920,13 @@ svg.is-filled {
 
 .affiliate-table-wrap {
   margin-top: 1rem;
+  width: 100%;
   max-width: 100%;
   overflow-x: auto;
   border: 2px solid var(--border);
   background: var(--surface);
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-inline: contain;
 }
 
 .affiliate-table {
@@ -1251,8 +1280,37 @@ svg.is-filled {
 }
 
 @media (max-width: 520px) {
+  .main-content {
+    padding: 0.75rem;
+  }
+
   .brand small {
     display: none;
+  }
+
+  .page-intro {
+    padding: 1rem 0.75rem;
+  }
+
+  .page-intro h1 {
+    font-size: clamp(1.85rem, 11vw, 2.7rem);
+  }
+
+  .calculator-form,
+  .result-panel,
+  .affiliate-block,
+  .library-tools {
+    padding: 0.75rem;
+  }
+
+  .button-row,
+  .result-actions {
+    width: 100%;
+  }
+
+  .button-row .primary-button,
+  .button-row .secondary-button {
+    flex: 1 1 100%;
   }
 
   .hero-panel {
@@ -1278,6 +1336,7 @@ svg.is-filled {
   .result-row {
     grid-template-columns: 1fr;
     gap: 0.25rem;
+    overflow-wrap: anywhere;
   }
 
   .result-row dd {
@@ -1286,6 +1345,24 @@ svg.is-filled {
 
   .result-panel {
     position: static;
+  }
+
+  .affiliate-header {
+    display: grid;
+  }
+
+  .affiliate-header > span {
+    width: fit-content;
+  }
+
+  .affiliate-table {
+    min-width: 640px;
+    font-size: 0.85rem;
+  }
+
+  .affiliate-table th,
+  .affiliate-table td {
+    padding: 0.6rem;
   }
 }
 
