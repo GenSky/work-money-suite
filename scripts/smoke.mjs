@@ -17,7 +17,7 @@ const workday = calculateWorkday({
 });
 
 assert(workday.ok, "Workday calculator should return a valid result.");
-assert(workday.logoutTime === "17:30", "Workday calculator default expectation changed.");
+assert(workday.logoutTime === "5:30 PM", "Workday calculator default expectation changed.");
 
 const salary = calculateSalaryTakeHome({
   annualSalary: 85000,

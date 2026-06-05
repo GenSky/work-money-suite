@@ -14,6 +14,17 @@ export function formatMinutesAsTime(totalMinutes) {
   return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
 }
 
+export function formatMinutesAs12HourTime(totalMinutes) {
+  if (!Number.isFinite(totalMinutes)) return "--";
+  const dayMinutes = 24 * 60;
+  const normalized = ((Math.round(totalMinutes) % dayMinutes) + dayMinutes) % dayMinutes;
+  const hours24 = Math.floor(normalized / 60);
+  const minutes = normalized % 60;
+  const suffix = hours24 >= 12 ? "PM" : "AM";
+  const hours12 = hours24 % 12 || 12;
+  return `${hours12}:${String(minutes).padStart(2, "0")} ${suffix}`;
+}
+
 export function formatDuration(minutes) {
   if (!Number.isFinite(minutes)) return "0h 0m";
   const abs = Math.max(0, Math.round(minutes));

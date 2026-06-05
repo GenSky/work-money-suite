@@ -58,7 +58,7 @@ test("workday normal shift with meal", () => {
     requiredMinutes: 0,
   });
   assert(result.ok, "Expected valid workday");
-  assert(result.logoutTime === "17:30", `Expected 17:30, got ${result.logoutTime}`);
+  assert(result.logoutTime === "5:30 PM", `Expected 5:30 PM, got ${result.logoutTime}`);
 });
 
 test("workday no meal and overnight logout", () => {
@@ -70,7 +70,7 @@ test("workday no meal and overnight logout", () => {
     requiredMinutes: 15,
   });
   assert(result.ok, "Expected valid overnight workday");
-  assert(result.logoutTime === "06:30", `Expected 06:30, got ${result.logoutTime}`);
+  assert(result.logoutTime === "6:30 AM", `Expected 6:30 AM, got ${result.logoutTime}`);
 });
 
 test("workday catches implausible meal", () => {

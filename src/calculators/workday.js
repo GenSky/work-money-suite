@@ -1,4 +1,4 @@
-import { formatDuration, formatMinutesAsTime, parseTimeToMinutes } from "../utils/time.js";
+import { formatDuration, formatMinutesAs12HourTime, parseTimeToMinutes } from "../utils/time.js";
 
 export function calculateWorkday({ loginTime, mealLogout, mealLogin, requiredHours, requiredMinutes }) {
   const login = parseTimeToMinutes(loginTime);
@@ -26,20 +26,21 @@ export function calculateWorkday({ loginTime, mealLogout, mealLogin, requiredHou
   }
 
   const logoutMinutes = login + workMinutes + mealMinutes;
+  const formattedLogout = formatMinutesAs12HourTime(logoutMinutes);
 
   return {
     ok: true,
     loginTime,
     mealDuration: mealMinutes,
     requiredDuration: workMinutes,
-    logoutTime: formatMinutesAsTime(logoutMinutes),
+    logoutTime: formattedLogout,
     totalElapsed: workMinutes + mealMinutes,
     rows: [
       ["Login time", loginTime],
       ["Meal duration", formatDuration(mealMinutes)],
       ["Required work", formatDuration(workMinutes)],
       ["Total elapsed", formatDuration(workMinutes + mealMinutes)],
-      ["Estimated logout", formatMinutesAsTime(logoutMinutes)],
+      ["Estimated logout", formattedLogout],
     ],
   };
 }
