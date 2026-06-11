@@ -1,47 +1,51 @@
 :root {
   color-scheme: light;
-  --bg: #f6f1e7;
-  --surface: #fffdf5;
-  --surface-strong: #39c4dd;
+  --bg: #f7f2e8;
+  --surface: #fffaf0;
+  --surface-strong: #ff90e8;
   --text: #0b0f0c;
-  --muted: #4c5a50;
+  --muted: #48413a;
   --border: #0b0f0c;
-  --primary: #007a4d;
-  --primary-strong: #005f3c;
-  --primary-text: #ffffff;
-  --success: #118548;
-  --warning: #b85c00;
+  --primary: #ff90e8;
+  --primary-strong: #f46bd8;
+  --primary-text: #0b0f0c;
+  --success: #23a094;
+  --warning: #ffc900;
   --error: #be123c;
-  --climate-blue: #39c4dd;
-  --leaf: #76df6c;
-  --solar: #f8c843;
-  --coral: #f15a3b;
-  --paper: #fff7df;
-  --shadow: 8px 8px 0 rgba(11, 15, 12, 0.12);
+  --climate-blue: #90a8ed;
+  --leaf: #23a094;
+  --solar: #ffc900;
+  --coral: #ff7051;
+  --paper: #ffffff;
+  --lavender: #b6a4ff;
+  --mint: #90ee90;
+  --shadow: 6px 6px 0 var(--border);
   --radius: 2px;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: Arial, Helvetica, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
   --bg: #08130f;
-  --surface: #101f18;
-  --surface-strong: #1fb9d1;
-  --text: #f8f3e8;
-  --muted: #b9c7ba;
-  --border: #d9f7df;
-  --primary: #76df6c;
-  --primary-strong: #a5f39b;
+  --surface: #15120f;
+  --surface-strong: #ff90e8;
+  --text: #fffaf0;
+  --muted: #cfc4b5;
+  --border: #fffaf0;
+  --primary: #ff90e8;
+  --primary-strong: #ffc900;
   --primary-text: #0b0f0c;
-  --success: #8ded86;
-  --warning: #f8c843;
+  --success: #23d3c3;
+  --warning: #ffc900;
   --error: #fb7185;
-  --climate-blue: #1fb9d1;
-  --leaf: #76df6c;
-  --solar: #f8c843;
-  --coral: #ff765c;
-  --paper: #15281f;
-  --shadow: 8px 8px 0 rgba(217, 247, 223, 0.08);
+  --climate-blue: #90a8ed;
+  --leaf: #23a094;
+  --solar: #ffc900;
+  --coral: #ff7051;
+  --paper: #211b16;
+  --lavender: #b6a4ff;
+  --mint: #90ee90;
+  --shadow: 6px 6px 0 var(--border);
 }
 
 * {
@@ -49,6 +53,7 @@
 }
 
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -56,11 +61,10 @@ body {
   margin: 0;
   min-width: 320px;
   overflow-x: hidden;
-  background: var(--bg);
-  background-image:
-    linear-gradient(color-mix(in srgb, var(--border) 6%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--border) 6%, transparent) 1px, transparent 1px);
-  background-size: 36px 36px;
+  background:
+    radial-gradient(circle at 12px 12px, color-mix(in srgb, var(--border) 12%, transparent) 1.5px, transparent 2px),
+    var(--bg);
+  background-size: 24px 24px;
   color: var(--text);
   font-family: inherit;
 }
@@ -114,7 +118,7 @@ button:disabled {
   gap: 1rem;
   min-height: 72px;
   padding: 0.75rem 1rem;
-  border-bottom: 2px solid var(--border);
+  border-bottom: 3px solid var(--border);
   background: var(--surface);
 }
 
@@ -130,11 +134,12 @@ button:disabled {
   width: 40px;
   height: 40px;
   place-items: center;
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   border-radius: 0;
-  background: var(--surface);
-  color: var(--primary);
+  background: var(--primary);
+  color: var(--text);
   font-weight: 900;
+  box-shadow: 4px 4px 0 var(--border);
 }
 
 .brand strong,
@@ -170,7 +175,10 @@ button:disabled {
 }
 
 .top-nav a:hover {
-  color: var(--primary);
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.2em;
 }
 
 .app-body {
@@ -186,7 +194,7 @@ button:disabled {
   width: min(82vw, 300px);
   padding: 1rem;
   transform: translateX(-105%);
-  border-right: 2px solid var(--border);
+  border-right: 3px solid var(--border);
   background: var(--surface);
   transition: transform 180ms ease;
   overflow-y: auto;
@@ -223,8 +231,9 @@ button:disabled {
 
 .sidebar a:hover,
 .sidebar a.active {
-  background: var(--climate-blue);
+  background: var(--solar);
   color: var(--text);
+  box-shadow: 4px 4px 0 var(--border);
 }
 
 .main-content {
@@ -258,10 +267,11 @@ button:disabled {
   position: relative;
   margin: 1rem 0 1.5rem;
   padding: 1.5rem;
-  border: 2px solid var(--border);
-  background: var(--climate-blue);
+  border: 3px solid var(--border);
+  background: var(--solar);
   overflow: hidden;
   color: #0b0f0c;
+  box-shadow: var(--shadow);
 }
 
 .hero-copy h1,
@@ -269,7 +279,7 @@ button:disabled {
   max-width: 800px;
   margin: 0.25rem 0 0.75rem;
   font-size: clamp(2rem, 7vw, 4.75rem);
-  line-height: 1;
+  line-height: 0.96;
   letter-spacing: 0;
 }
 
@@ -284,15 +294,18 @@ button:disabled {
 .hero-visual {
   position: relative;
   min-height: 220px;
-  border: 2px solid var(--border);
-  background: var(--paper);
+  border: 3px solid var(--border);
+  background:
+    linear-gradient(135deg, transparent 0 46%, var(--border) 46% 49%, transparent 49%),
+    var(--primary);
   overflow: hidden;
+  box-shadow: 6px 6px 0 var(--border);
 }
 
 .hero-visual span {
   position: absolute;
   display: block;
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
 }
 
 .sun-shape {
@@ -361,7 +374,7 @@ button:disabled {
 .modal,
 .assumption-box,
 .roadmap {
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
   box-shadow: var(--shadow);
@@ -397,7 +410,7 @@ button:disabled {
   display: block;
   margin-top: 0.25rem;
   font-size: 1.6rem;
-  color: var(--primary);
+  color: var(--text);
 }
 
 .quick-grid {
@@ -409,7 +422,7 @@ button:disabled {
   width: 100%;
   text-align: left;
   color: var(--text);
-  box-shadow: none;
+  box-shadow: 4px 4px 0 var(--border);
 }
 
 .section-block {
@@ -421,7 +434,7 @@ button:disabled {
   gap: 0.75rem;
   margin: 1rem 0 1.25rem;
   padding: 1rem;
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
   box-shadow: var(--shadow);
@@ -469,8 +482,10 @@ button:disabled {
 
 .calculator-card {
   display: grid;
-  min-height: 245px;
-  padding: 1rem;
+  grid-template-rows: auto 1fr auto;
+  min-height: 370px;
+  padding: 0;
+  overflow: hidden;
   color: var(--text);
   box-shadow: none;
   transition:
@@ -480,9 +495,9 @@ button:disabled {
 }
 
 .calculator-card:hover {
-  transform: translate(-3px, -3px);
+  transform: translate(-4px, -4px);
   border-color: var(--border);
-  box-shadow: 6px 6px 0 var(--primary);
+  box-shadow: 8px 8px 0 var(--border);
 }
 
 .calculator-card.disabled {
@@ -490,8 +505,9 @@ button:disabled {
 }
 
 .calculator-card h3 {
-  margin: 0.7rem 0 0.35rem;
-  font-size: 1.05rem;
+  margin: 0.8rem 0 0.45rem;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.08;
 }
 
 .calculator-card p {
@@ -500,15 +516,98 @@ button:disabled {
   line-height: 1.55;
 }
 
-.card-icon {
+.card-art {
+  position: relative;
   display: grid;
-  width: 42px;
+  min-height: 152px;
+  place-items: center;
+  border-bottom: 3px solid var(--border);
+  background: var(--climate-blue);
+  overflow: hidden;
+}
+
+.card-art::before,
+.card-art::after {
+  content: "";
+  position: absolute;
+  border: 3px solid var(--border);
+  pointer-events: none;
+}
+
+.card-art::before {
+  inset: 18px auto auto 18px;
+  width: 58px;
+  height: 58px;
+  background: var(--solar);
+  transform: rotate(12deg);
+}
+
+.card-art::after {
+  right: 16px;
+  bottom: 16px;
+  width: 90px;
   height: 42px;
+  background: var(--mint);
+  transform: rotate(-9deg);
+}
+
+.card-art-work-time {
+  background: var(--lavender);
+}
+
+.card-art-paychecks {
+  background: var(--primary);
+}
+
+.card-art-benefits {
+  background: var(--mint);
+}
+
+.card-art-debt {
+  background: var(--coral);
+}
+
+.card-art-retirement {
+  background: var(--climate-blue);
+}
+
+.card-art > span {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  z-index: 2;
+  border: 3px solid var(--border);
+  background: var(--paper);
+  color: var(--text);
+  padding: 0.25rem 0.45rem;
+  font-size: 0.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.card-icon {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: 66px;
+  height: 66px;
   place-items: center;
   border-radius: var(--radius);
-  border: 2px solid var(--border);
-  background: var(--climate-blue);
+  border: 3px solid var(--border);
+  background: var(--surface);
   color: var(--text);
+  box-shadow: 5px 5px 0 var(--border);
+}
+
+.card-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.card-body {
+  display: grid;
+  align-content: start;
+  padding: 1rem;
 }
 
 .tag-row {
@@ -517,29 +616,46 @@ button:disabled {
   margin-top: 1rem;
 }
 
+.card-price {
+  position: relative;
+  width: fit-content;
+  margin: 0 1rem 1rem;
+  border: 2px solid var(--border);
+  background: var(--primary);
+  color: var(--text);
+  padding: 0.5rem 0.8rem;
+  font-weight: 900;
+  box-shadow: 4px 4px 0 var(--border);
+}
+
+.calculator-card.disabled .card-price {
+  background: var(--solar);
+}
+
 .tag-row span,
 .status-pill {
-  border: 1.5px solid var(--border);
+  border: 2px solid var(--border);
   border-radius: 0;
   padding: 0.25rem 0.5rem;
   color: var(--text);
   font-size: 0.75rem;
-  background: var(--paper);
+  background: var(--surface);
 }
 
 .status-pill.live {
   border-color: var(--border);
-  background: var(--leaf);
+  background: var(--mint);
   color: #0b0f0c;
 }
 
 .page-intro {
   margin: 1rem 0 1.25rem;
   padding: 1.5rem;
-  border: 2px solid var(--border);
-  background: var(--climate-blue);
+  border: 3px solid var(--border);
+  background: var(--solar);
   color: #0b0f0c;
   min-width: 0;
+  box-shadow: var(--shadow);
 }
 
 .hero-section .eyebrow,
@@ -612,9 +728,9 @@ select {
 
 input:focus,
 select:focus {
-  border-color: var(--primary);
+  border-color: var(--border);
   outline: none;
-  box-shadow: 4px 4px 0 var(--solar);
+  box-shadow: 4px 4px 0 var(--primary);
 }
 
 .primary-button,
@@ -626,8 +742,9 @@ select:focus {
   min-height: 44px;
   border-radius: 0;
   padding: 0.7rem 0.95rem;
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   font-weight: 850;
+  box-shadow: 4px 4px 0 var(--border);
 }
 
 .primary-button {
@@ -637,13 +754,20 @@ select:focus {
 
 .primary-button:hover {
   background: var(--primary-strong);
-  box-shadow: 4px 4px 0 var(--solar);
+  box-shadow: 6px 6px 0 var(--border);
+  transform: translate(-2px, -2px);
 }
 
 .secondary-button {
   border-color: var(--border);
   background: var(--surface);
   color: var(--text);
+}
+
+.secondary-button:hover,
+.inline-link:hover {
+  background: var(--solar);
+  transform: translate(-2px, -2px);
 }
 
 .button-row {
@@ -681,7 +805,7 @@ select:focus {
   gap: 1rem;
   align-items: baseline;
   padding: 0.75rem 0;
-  border-bottom: 2px solid color-mix(in srgb, var(--border) 28%, transparent);
+  border-bottom: 2px solid color-mix(in srgb, var(--border) 36%, transparent);
 }
 
 .result-row dt {
@@ -705,7 +829,7 @@ select:focus {
   width: 42px;
   height: 42px;
   place-items: center;
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   border-radius: 0;
   background: var(--surface);
   color: var(--text);
@@ -720,6 +844,8 @@ select:focus {
   border-color: var(--border);
   background: var(--solar);
   color: #0b0f0c;
+  box-shadow: 4px 4px 0 var(--border);
+  transform: translate(-2px, -2px);
 }
 
 svg {
@@ -756,7 +882,7 @@ svg.is-filled {
 .assumption-box {
   padding: 0.85rem;
   box-shadow: none;
-  background: color-mix(in srgb, var(--surface) 80%, var(--climate-blue));
+  background: color-mix(in srgb, var(--surface) 78%, var(--primary));
 }
 
 .alert {
@@ -786,7 +912,7 @@ svg.is-filled {
 .mini-metrics div {
   padding: 0.85rem;
   border-radius: var(--radius);
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   background: var(--surface);
 }
 
@@ -821,7 +947,7 @@ svg.is-filled {
 
 .history-item {
   padding: 0.75rem;
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   border-radius: var(--radius);
 }
 
@@ -881,7 +1007,7 @@ svg.is-filled {
 .affiliate-block {
   margin-top: 1.5rem;
   padding: 1rem;
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   background: var(--surface);
   box-shadow: var(--shadow);
   max-width: 100%;
@@ -903,7 +1029,7 @@ svg.is-filled {
 }
 
 .affiliate-header > span {
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   background: var(--solar);
   color: #0b0f0c;
   padding: 0.25rem 0.5rem;
@@ -923,7 +1049,7 @@ svg.is-filled {
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   background: var(--surface);
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-inline: contain;
@@ -945,7 +1071,7 @@ svg.is-filled {
 }
 
 .affiliate-table thead th {
-  background: var(--climate-blue);
+  background: var(--primary);
   color: #0b0f0c;
   font-size: 0.75rem;
   font-weight: 900;
@@ -981,7 +1107,7 @@ svg.is-filled {
   justify-content: center;
   min-height: 36px;
   width: fit-content;
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   background: var(--primary);
   color: var(--primary-text);
   padding: 0.45rem 0.7rem;
@@ -989,7 +1115,7 @@ svg.is-filled {
 }
 
 .affiliate-table a:hover {
-  box-shadow: 4px 4px 0 var(--solar);
+  box-shadow: 4px 4px 0 var(--border);
 }
 
 .affiliate-disclosure {
@@ -1343,6 +1469,89 @@ svg.is-filled {
     padding: 0.7rem;
   }
 
+  .dashboard .calculator-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .calculator-card {
+    min-height: 288px;
+  }
+
+  .card-art {
+    min-height: 106px;
+  }
+
+  .card-art::before {
+    width: 38px;
+    height: 38px;
+  }
+
+  .card-art::after {
+    width: 58px;
+    height: 28px;
+  }
+
+  .card-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .card-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .card-art > span {
+    max-width: calc(100% - 20px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.58rem;
+  }
+
+  .card-body {
+    padding: 0.7rem;
+  }
+
+  .calculator-card h3 {
+    font-size: 0.96rem;
+    line-height: 1.12;
+  }
+
+  .calculator-card p {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .card-topline {
+    gap: 0.4rem;
+  }
+
+  .status-pill {
+    padding: 0.2rem 0.35rem;
+    font-size: 0.62rem;
+  }
+
+  .calculator-card .icon-button.quiet {
+    width: 32px;
+    height: 32px;
+  }
+
+  .tag-row {
+    display: none;
+  }
+
+  .card-price {
+    margin: 0 0.7rem 0.7rem;
+    padding: 0.35rem 0.45rem;
+    font-size: 0.72rem;
+  }
+
   .calculator-workspace {
     gap: 0.75rem;
   }
@@ -1401,6 +1610,7 @@ svg.is-filled {
     margin-inline: -1rem;
     border-left: 0;
     border-right: 0;
+    box-shadow: none;
   }
 
   .hero-visual {

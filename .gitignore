@@ -1,6 +1,7 @@
 node_modules/
 dist/
 .gh-pages-build/
+.playwright-cli/
 .DS_Store
 *.local
 npm-debug.log*
